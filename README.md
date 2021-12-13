@@ -4,6 +4,6 @@ Get all list of contacts https://ibb.co/hC8T944
 
 Add new contact https://ibb.co/YP0JJnL
 
-Remove contact by id https://ibb.co/ctt8vSq
+Find contact by id https://ibb.co/ctt8vSq
 
-Find contact by id https://ibb.co/SK8ZGM6
+Remove contact by id https://ibb.co/SK8ZGM6
