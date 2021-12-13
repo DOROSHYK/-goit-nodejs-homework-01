@@ -3,30 +3,31 @@ const path = require('path');
 const { randomUUID } = require('crypto');
 
  
-  const contactsPath = path.join(__dirname, "./db/contacts.json");
+  const contactsPath = path.join(__dirname, "db" ,'contacts.json');
  
 
 // TODO: задокументировать каждую функцию
 async function listContacts() {
-  const data = await fs.readFile(contactsPath);
+  const data = await fs.readFile(contactsPath,  "utf-8");
   return JSON.parse(data);
 }
 
 async function getContactById( contactId ) {
   const contacts = await listContacts();
-  // console.log(contacts)
-  const oneContact = contacts.find(item => item.id === contactId)
+  const oneContact = contacts.find(item => item.id === String(contactId));
   
   if (!oneContact) {
     return null;
-    // return `contact with this id ${contactId} is not found`;
+    
   }
   return oneContact;
 }
 
 async function removeContact(contactId) {
   const contacts = await listContacts();
-  const idx = contacts.findIndex(item => item.id === contactId)
+  
+  const idx = contacts.findIndex(item => item.id === String(contactId))
+
   if (idx === -1) {
     return null;
   }
@@ -54,6 +55,7 @@ async function addContact({ name, email, phone }) {
 module.exports = {
   listContacts,
   getContactById,
-  addContact,
-  removeContact
+  removeContact,
+  addContact
+  
 }
